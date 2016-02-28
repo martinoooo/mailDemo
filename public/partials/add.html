@@ -7,32 +7,24 @@
         <!-- lastName -->
         <div class="form-group" ng-class="{ 'has-error' : userForm.lastName.$invalid  }">
             <label>lastName</label>
-            <input type="text" name="lastName" class="form-control" ng-model="item.lastName" ng-maxlength='8' required />
-            <div  ng-messages="userForm.lastName.$error">
-                <div ng-message="required" class="help-block">your lastName is required</div>
-                <div ng-message="maxlength" class="help-block">lastName is too long.</div>
-            </div>
-             <!-- <p ng-show="userForm.lastName.$error.required" class="help-block">You lastName is required.</p>
-             <p ng-show="userForm.lastName.$error.maxlength" class="help-block">lastName is too long.</p>  -->
+            <input type="text" name="lastName" class="form-control" ng-model="vm.item.lastName" ng-maxlength='8' required />
+            <p ng-show="userForm.lastName.$error.required" class="help-block">You lastName is required.</p>
+            <p ng-show="userForm.lastName.$error.maxlength" class="help-block">lastName is too long.</p> 
         </div>
  
         <!-- firstName -->
         <div class="form-group" ng-class="{ 'has-error' : userForm.firstName.$invalid }">
             <label>firstName</label>
-            <input type="text" name="firstName" class="form-control" ng-model="item.firstName" ng-maxlength='8' required />
-            <div ng-messages="userForm.firstName.$error">
-                <div ng-message="required" class="help-block">your firstName is required</div>
-                <div ng-message="maxlength" class="help-block">firstName is too long.</div>
-            </div>
-             <!-- <p ng-show="userForm.firstName.$error.required " class="help-block">Your firstName is required.</p> 
-             <p ng-show="userForm.firstName.$error.maxlength" class="help-block">firstName is too long.</p>  -->
+            <input type="text" name="firstName" class="form-control" ng-model="vm.item.firstName" ng-maxlength='8' required />
+            <p ng-show="userForm.firstName.$error.required " class="help-block">Your firstName is required.</p> 
+            <p ng-show="userForm.firstName.$error.maxlength" class="help-block">firstName is too long.</p>
         </div>
 
          <!-- phone -->
         <div class="form-group" ng-class="{ 'has-error' : userForm.phone.$invalid }">
            <label>phone</label>
-           <input type="number" name="phone" class="form-control" ng-model="item.phone" my-min required / >
-           <div   ng-messages="userForm.phone.$error">
+           <input type="number" name="phone" class="form-control" ng-model="vm.item.phone" my-min required / >
+           <div  ng-messages="userForm.phone.$error">
                 <div ng-message="required" class="help-block">your phone is required</div> 
                 <div ng-message="myMin" class="help-block">please Enter a number >o.</div>
                 <div ng-message="number" class="help-block">please Enter a number</div>
@@ -44,7 +36,7 @@
         <!-- qq -->
         <div class="form-group" ng-class="{ 'has-error' : userForm.qq.$invalid &&  !userForm.qq.$pristine }">
             <label>qq</label>
-            <input type="number" name="qq" class="form-control" ng-model="item.qq" my-min>
+            <input type="number" name="qq" class="form-control" ng-model="vm.item.qq" my-min>
             <div   ng-messages="userForm.qq.$error">
                 <div ng-message="myMin" class="help-block">please Enter a number >o.</div>
                 <div ng-message="number" class="help-block">please Enter a number</div>
@@ -58,7 +50,7 @@
         <!-- address -->
         <div class="form-group">
             <label>address</label>
-            <input type="text" name="address" class="form-control" ng-model="item.address" >
+            <input type="text" name="address" class="form-control" ng-model="vm.item.address" >
         </div>
 
         <!-- remark -->
@@ -67,7 +59,7 @@
             <input type="text" name="remark" class="form-control" ng-model="item.remark" >
         </div> 
         <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
-        <button class="btn btn-primary" ng-click="cancel()" >cancel</button>
+        <button class="btn btn-primary" ng-click="vm.cancel()" >cancel</button>
     </form>
 </div><!-- col-sm-8 -->
 </div><!-- /container -->

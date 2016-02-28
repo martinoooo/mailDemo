@@ -1,4 +1,4 @@
-angular.module("MailApp",['ui.router','MailList'])
+angular.module("MailApp",['ui.router','MailList','MailAdd'])
 			  .run(['$rootScope', '$state', '$stateParams',
 			      function ($rootScope,   $state,   $stateParams) {
 			      //方便获得当前状态的方法，绑到根作用域
@@ -19,6 +19,8 @@ angular.module("MailApp",['ui.router','MailList'])
 			        .state('list.add', {
 			            url: '/add',
 			            templateUrl: 'partials/add.html',
+			            controller:'addCtrl',
+			            controllerAs: 'vm',
 			            /*controller:['$scope','$state','messageStorage',function($scope,$state,messageStorage){*/
 			        })
 
