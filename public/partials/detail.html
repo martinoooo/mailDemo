@@ -1,0 +1,118 @@
+<br/><br/>
+<div class="container">
+<div class="col-sm-8 col-sm-offset-2">	
+	<ul class="list-group">
+			
+		<!--lastName--> 	
+		<div ng-hide="editing1">
+		  	<label>lastName:</label>
+		  	<li class="list-group-item" ng-dblclick='editing1=true'>{{item.lastName}}</li>
+		</div>
+	    <form  name="userForm1" ng-show="editing1" >
+	        <div class="form-group" ng-class="{ 'has-error' : userForm1.lastName.$invalid  }">
+		            <label>lastName</label>
+		            <input type="text" name="lastName" class="form-control" ng-model="editedItem.lastName" ng-maxlength='8' required>
+		            <div  ng-messages="userForm1.lastName.$error">
+		                <div ng-message="required" class="help-block">your lastName is required</div>
+		                <div ng-message="maxlength" class="help-block">lastName is too long.</div>
+		            </div>
+		           <!--  <p ng-show="userForm1.lastName.$error.required" class="help-block">You lastName is required.</p>
+		           <p ng-show="userForm1.lastName.$error.maxlength" class="help-block">lastName is too long.</p>  -->
+		            <button class="btn btn-primary" ng-disabled="userForm1.$invalid" 
+		            ng-click="saveChange(userForm1.$valid);editing1=false">Submit</button>
+		           <button class="btn btn-primary" ng-click="cancel();editing1=false">cancel</button>
+		    </div> 
+	    </form>
+
+		<!-- firstName -->
+		<div ng-hide="editing2" >
+		  	<label>firstName:</label>
+		  	<li class="list-group-item" ng-dblclick='editing2=true'>{{item.firstName}}</li>
+		</div>
+		<form  name="userForm2" ng-show="editing2" >
+			<div class="form-group" ng-class="{ 'has-error' : userForm2.firstName.$invalid }">
+		            <label>firstName</label>
+			        <input type="text" name="firstName" class="form-control" ng-model="editedItem.firstName" ng-maxlength='8' required />
+			        <div ng-messages="userForm2.firstName.$error">
+		                <div ng-message="required" class="help-block">your firstName is required</div>
+		                <div ng-message="maxlength" class="help-block">firstName is too long.</div>
+		            </div>
+			       <!--  <p ng-show="userForm2.firstName.$error.required " class="help-block">Your firstName is required.</p> 
+			       <p ng-show="userForm2.firstName.$error.maxlength" class="help-block">firstName is too long.</p>  -->
+		        	<button type="submit" class="btn btn-primary" ng-disabled="userForm2.$invalid" ng-click="saveChange(userForm2.$valid);editing2=false">Submit</button>
+		        	<button class="btn btn-primary" ng-click="cancel();editing2=false">cancel</button>
+		    </div>
+		</form>
+
+		<!-- phone -->
+		<div ng-hide="editing3" >
+		  	<label>phone:</label>
+		  	<li class="list-group-item" ng-dblclick='editing3=true'>{{item.phone}}</li>
+		</div>
+		<form  name="userForm3" ng-show="editing3" >
+			<div class="form-group" ng-class="{ 'has-error' : userForm3.phone.$invalid }">
+			    <label>phone</label>
+			    <input type="number" name="phone" class="form-control" ng-model="editedItem.phone" my-min required />
+			    <div   ng-messages="userForm3.phone.$error">
+		                <div ng-message="required" class="help-block">your phone is required</div> 
+		                <div ng-message="myMin" class="help-block">please Enter a number >o.</div>
+		                <div ng-message="number" class="help-block">please Enter a number</div>
+		        </div>
+			       <!--  <p ng-show="!userForm4.phone.$pristine&& (userForm4.phone.$error.required||userForm4.phone.$error.myMin)" class="help-block">please Enter a number >o.</p> -->
+			 	<button type="submit" class="btn btn-primary" ng-disabled="userForm3.$invalid" ng-click="editing3=false;saveChange(userForm4.$valid)">Submit</button>
+			 	<button class="btn btn-primary" ng-click="editing3=false;cancel()">cancel</button>
+			</div>
+		</form>
+
+		<!-- qq -->
+		<div ng-hide="editing4" >
+		  	<label>qq:</label>
+		  	<li class="list-group-item" ng-dblclick='editing4=true'>{{item.qq}}</li>
+		</div>
+		<form  name="userForm4" ng-show="editing4" >
+			<div class="form-group" ng-class="{ 'has-error' : userForm4.qq.$invalid &&  !userForm4.qq.$pristine }">
+			        <label>qq</label>
+			        <input type="number" name="qq" class="form-control" ng-model="editedItem.qq" my-min>
+			        <div   ng-messages="userForm4.qq.$error">
+		                <div ng-message="myMin" class="help-block">please Enter a number >o.</div>
+		                <div ng-message="number" class="help-block">please Enter a number</div>
+		            </div>
+			        <!-- <p ng-show="!userForm4.qq.$pristine&& userForm4.qq.$error.number" class="help-block">please Enter a valid qq.</p>
+			        <p ng-show="!userForm4.qq.$pristine&& userForm4.qq.$error.myMin" class="help-block">please Enter a number >o.</p> -->
+			 		<button type="submit" class="btn btn-primary" ng-disabled="userForm4.$invalid" ng-click="saveChange(userForm4.$valid);editing4=false">Submit</button>
+			 		<button class="btn btn-primary" ng-click="cancel();editing4=false">cancel</button>
+			</div>
+		</form>
+				
+		<!-- address -->
+		<div ng-hide="editing5" >
+		  	<label>address:</label>
+		  	<li class="list-group-item" ng-dblclick='editing5=true'>{{item.address}}</li>
+		</div>
+			    <form  name="userForm5" ng-show="editing5" >
+			    <div class="form-group">
+		           	<label>address</label>
+		            <input type="text" name="address" class="form-control" ng-model="editedItem.address" >
+			 		<button type="submit" class="btn btn-primary" ng-disabled="userForm5.$invalid" ng-click="saveChange(userForm5.$valid);editing5=false">Submit</button>
+			 		<button class="btn btn-primary" ng-click="cancel();editing5=false">cancel</button>
+			    </div>
+		</form>
+		
+		<!-- remark -->
+		<div ng-hide="editing6" >
+		  	<label>remark:</label>
+		  	<li class="list-group-item" ng-dblclick='editing6=true'>{{item.remark}}</li>
+		</div>
+		<form  name="userForm6" ng-show="editing6" >
+			     <div class="form-group">
+		            <label>remark</label>
+		            <input type="text" name="remark" class="form-control" ng-model="editedItem.remark" >
+			 		<button type="submit" class="btn btn-primary" ng-disabled="userForm6.$invalid" ng-click="saveChange(userForm6.$valid);editing6=false">Submit</button>
+			 		<button class="btn btn-primary" ng-click="cancel();editing6=false">cancel</button>
+			    </div>
+		</form> 
+	</ul>
+	<button  class="btn btn-primary" ng-click="edit()">edit</button>
+	<!--  <div ui-view class="slide"> -->
+</div>
+</div>

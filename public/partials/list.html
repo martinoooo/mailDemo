@@ -1,0 +1,13 @@
+<div class="list-view">
+  <div>
+      <li ng-repeat="message in vm.messages" ui-sref-active="active" class="list__actions">
+          <a ui-sref="list.detail({contactId:message.id})" >{{message.lastName}}    {{message.firstName}}</a><br/>
+      </li>
+  </div>
+</div>
+<div class="module directive">
+	<div ui-view>
+	<img src="css/img/5.jpg" class='grid'>
+	</div>
+</div>
+    

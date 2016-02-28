@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+	<head>
+	    <meta charset="utf-8" />
+	    <link rel="stylesheet" href="/stylesheets/index.css">
+	    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+	</head>
+
+	<body ng-app="MailApp">
+		<div ng-controller="listCtrl">
+		     <header id="header" role="banner">
+	          
+	    	    <div class="header__actions" >
+	    	        <a ui-sref="list.add"  ng-click="" role="button">Add</a>
+	    	    </div>
+	            <div class="header__actions" >
+	              <button class="delete" ng-click="delete(stateParams)">Delete</button>
+	            </div>  
+	            <div class="header__text">
+	                <p><a ui-sref="list">Messages List</a></p>
+	            </div>
+	            <form class="navbar-form navbar-right" role="search">
+	                <input type="text" class="form-control" placeholder="Search" ng-model='search'>
+	            </form>
+		    </header>
+
+		    <main class="main" role="main">
+		      <div ui-view class="flex"></div>
+		    </main>
+	    </div>
+	</body>
+	<script src="/javascripts/angular.min.js"></script>
+	<script src="/javascripts/angular-route.min.js"></script>
+	<script src="/javascripts/angular-ui-router.js"></script>
+	<script src="/controler/app.js"></script>
+	<script src="/controler/listCtrl.js"></script>
+</html>

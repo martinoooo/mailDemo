@@ -1,0 +1,132 @@
+body {
+  font-size: 16px;
+  font-weight: 300;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/**
+ * header
+ */
+ 
+#header {
+  padding: 25px 0; 
+  background: #192124;
+  color: #D5DDE0;
+ /*  text-align: center; */
+}
+@media screen and (max-width: 640px) {
+  .header::before {
+    display: none;
+  }
+} 
+#header p {
+  font-size: 24px;
+  font-weight: 200;
+}
+
+#header p a {
+  text-decoration: none;
+  color: #D5DDE0; 
+  border-bottom: 1px solid #D5DDE0;
+}
+
+#header .header__text {
+ padding: 0 0 0 30%;
+ font-weight: 900;
+ display: inline-block;
+} 
+
+#header .header__actions {
+  /* margin: 10px 0 0; */
+  display: inline-block;
+  right: 0;
+  margin-left: 25px;
+}
+
+#header .header__actions a {
+  margin: 0 10px 0 0;
+  font-weight: 900;
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid #a6120d;
+  border-radius: 3px;
+  padding: 6px 10px;
+  color: #fff;
+  background: #dd1d18;
+}
+#header .header__actions a:hover {
+  background: #a6120d;
+}
+
+#header .delete {
+  margin: 0 10px 0 0;
+  font-weight: 900;
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid #a6120d;
+  border-radius: 3px;
+  padding: 6px 10px;
+  color: #fff;
+  background: #dd1d18;
+}
+#header .delete:hover {
+  background: #a6120d;
+}
+
+.flex {
+  display: flex;
+  align-items: stretch;
+  min-height: 705px;
+}
+
+  /* 
+  list 
+  */
+.list-view {
+  background-color: #313744;
+  color: #D5DDE0;
+  left: 0;
+  width: 30%;
+  padding: 25px; /* */
+}
+
+.list__actions {
+  margin: 10px 0 0;
+  right: 0;
+  margin-left: 25px;
+}
+.list__actions a {
+  margin: 0 10px 0 0;
+  font-weight: 900;
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid #a6120d;
+  border-radius: 3px;
+  padding: 6px 10px;
+  color: #fff;
+  background: #dd1d18;
+}
+.list__actions a:hover {
+  background: #a6120d;
+  text-decoration: none;
+  color: #E6EDF2;
+}
+
+.module.directive {
+  background-color: #F6F5F3;
+  color: #44424C;
+  right: 0;
+  width: 100%;
+}
+
+
+.grid {
+  position: relative; 
+  /* display: -webkit-flex; */
+  justify-content: center;
+  padding: 75px 0 0 0;
+  margin: 0 auto auto 254px;
+  max-width: 1020px;
+}
+
+
