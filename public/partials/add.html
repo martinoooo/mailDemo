@@ -2,7 +2,7 @@
 <br/>
 <div class="container">
 <div class="col-sm-8 col-sm-offset-2">
-    <form name="userForm"  ng-submit="add(userForm.$valid)" novalidate>
+    <form name="userForm"  ng-submit="vm.add()" novalidate>
         
         <!-- lastName -->
         <div class="form-group" ng-class="{ 'has-error' : userForm.lastName.$invalid  }">
@@ -45,8 +45,6 @@
             <p ng-show="!userForm.qq.$pristine && userForm.qq.$error.myMin" class="help-block">please Enter a number >o.</p> -->
         </div>
         
-       
-
         <!-- address -->
         <div class="form-group">
             <label>address</label>
@@ -58,7 +56,8 @@
             <label>remark</label>
             <input type="text" name="remark" class="form-control" ng-model="item.remark" >
         </div> 
-        <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
+
+        <button type="submit" class="btn btn-primary" >Submit</button>
         <button class="btn btn-primary" ng-click="vm.cancel()" >cancel</button>
     </form>
 </div><!-- col-sm-8 -->

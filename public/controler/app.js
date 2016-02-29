@@ -21,7 +21,6 @@ angular.module("MailApp",['ui.router','MailList','MailAdd'])
 			            templateUrl: 'partials/add.html',
 			            controller:'addCtrl',
 			            controllerAs: 'vm',
-			            /*controller:['$scope','$state','messageStorage',function($scope,$state,messageStorage){*/
 			        })
 
 				/*/*listCtrl.$inject=['$scope', '$stateParams','$state'];

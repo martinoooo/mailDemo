@@ -4,8 +4,9 @@
   angular.module("MailAdd",[])
     .controller('addCtrl',addCtrl);
 
-  addCtrl.$inject=['$scope','$state',];
-  function addCtrl($scope,$state){
+  addCtrl.$inject=['$scope','$state','$http'];
+  
+  function addCtrl($scope,$state,$http){
     var vm =this;
 
     vm.item={//id:myRandom(),
@@ -20,13 +21,37 @@
 
     vm.add = add;
 
-    function add(isValid) {
+    function add() {
         var newContact=vm.item;
-        if (!isValid) {
+        /*if (!isValid) {
             return;
-        }
+        }*/
 
-        for(var x of $scope.messages){
+        console.log(vm.item);
+
+        $http(
+               {
+                method: 'POST',
+                url: "/list/add",
+                data: newContact
+               }
+             ).then(function (data) {
+              console.log(2222);
+                        /*console.log(data.message);
+                        if(data.message==='ok'){
+                            console.log(data.message);
+                            $window.location.href='/index';
+                        }
+                        else if(data.message)
+                            alert(data.message);*/
+
+              })
+             /*.error(function (data) {
+                        alert("error");
+                        alert(data);
+                    });*/
+
+       /* for(var x of $scope.messages){
             if (newContact.phone==x.phone){
                 alert("号码已注册过");
                 return;
@@ -46,7 +71,7 @@
                     };
                   
             $state.go('list');
-        })
+        })*/
     };
 
     function cancel(){
