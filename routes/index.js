@@ -13,35 +13,21 @@ router.post('/list/add',function(req,res){
             return res.status(200).json({message:err.message});
 
         }
-        /*res.cookie(configure.auth_cookie_name, user._id, {
-            maxAge: 1000 * 60 * 60 *24 * 30,
-            signed: true
-        });*/
-        //req.session.user = user;
         return res.status(200).json({message:'ok'});
     });
-    /*var username=req.body.user;
-    var password=req.body.password;
+});
 
-    var md5 = crypto.createHash('md5'),
-        password = md5.update(password + configure.password_salt).digest('hex');
-
-    User.login(username,password,function(err,user){
+router.get("/list",function(req,res){
+    console.log('ddddd');
+    var user_id=1;
+    Contacts.findContactByUser(user_id,function(err,contactsList){
         if(err){
-            return res.status(200).json({message:err.message});
+            return res.status(200).json(err);
         }
-        if(user && user.password!=password){
-            return res.status(200).json({message:"密码错误"});
-        }
-        else{
-            res.cookie(configure.auth_cookie_name, user._id, {
-                maxAge: 1000 * 60 * 60 *24 * 30,
-                signed: true
-            });
-            req.session.user = user;
-            return res.status(200).json({message:"ok"});
-        }
-    });*/
+        else
+            return res.status(200).json(contactsList);
+    });
+
 
 });
 

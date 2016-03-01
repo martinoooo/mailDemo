@@ -4,6 +4,14 @@ angular.module("MailApp",['ui.router','MailList','MailAdd'])
 			      //方便获得当前状态的方法，绑到根作用域
 			      $rootScope.$state = $state;
 			      $rootScope.$stateParams = $stateParams;
+
+			       /*,'$window', '$location', '$log','$templateCache'
+			       ,$window, $location, $log,$templateCache
+			       var stateChangeSuccess = $rootScope.$on('$stateChangeSuccess', stateChangeSuccess);  
+
+			        function stateChangeSuccess($rootScope) {  
+			           $templateCache.removeAll();    
+			        } */
 			      }
 			    ]
 			  )

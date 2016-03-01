@@ -4,12 +4,13 @@
   angular.module("MailAdd",[])
     .controller('addCtrl',addCtrl);
 
-  addCtrl.$inject=['$scope','$state','$http'];
+  addCtrl.$inject=['$scope','$state','$http','$timeout'];
   
-  function addCtrl($scope,$state,$http){
+  function addCtrl($scope,$state,$http,$timeout){
     var vm =this;
 
     vm.item={//id:myRandom(),
+              user_id:1,
               lastName:'',
               firstName:'',
               qq:'',
@@ -23,11 +24,6 @@
 
     function add() {
         var newContact=vm.item;
-        /*if (!isValid) {
-            return;
-        }*/
-
-        console.log(vm.item);
 
         $http(
                {
@@ -35,11 +31,22 @@
                 url: "/list/add",
                 data: newContact
                }
-             ).then(function (data) {
-                console.log(data.message);
+             ).success(function (data) {
                 if(data.message==='ok'){
-                    console.log(data.message);
-                    $window.location.href='/index';
+                    vm.item={
+                      id:1,
+                      lastName:'',
+                      firstName:'',
+                      qq:'',
+                      address:'',
+                      phone:'',
+                      remark:'',
+                    };
+                    
+                    $timeout(function () {
+                        $state.go('list', {}, { reload: true });
+                    }, 100);
+                    //$state.go('list');
                 }
                     else if(data.message)
                     alert(data.message);
@@ -50,14 +57,7 @@
                     alert(data);
               });
 
-       /* for(var x of $scope.messages){
-            if (newContact.phone==x.phone){
-                alert("号码已注册过");
-                return;
-            }
-        }
-
-        messageStorage.add(newContact)
+        /*messageStorage.add(newContact)
             .then(function success() {      
                     $scope.item={
                       id:myRandom(),
