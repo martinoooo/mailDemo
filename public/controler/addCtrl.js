@@ -36,20 +36,19 @@
                 data: newContact
                }
              ).then(function (data) {
-              console.log(2222);
-                        /*console.log(data.message);
-                        if(data.message==='ok'){
-                            console.log(data.message);
-                            $window.location.href='/index';
-                        }
-                        else if(data.message)
-                            alert(data.message);*/
+                console.log(data.message);
+                if(data.message==='ok'){
+                    console.log(data.message);
+                    $window.location.href='/index';
+                }
+                    else if(data.message)
+                    alert(data.message);
 
               })
-             /*.error(function (data) {
-                        alert("error");
-                        alert(data);
-                    });*/
+             .error(function (data) {
+                    alert("error");
+                    alert(data);
+              });
 
        /* for(var x of $scope.messages){
             if (newContact.phone==x.phone){

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var Contacts=require("../models/contacts");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -7,7 +8,18 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/list/add',function(req,res){
-	console.log(req.body);
+    Contacts.newContact(req.body, function (err, contact) {
+        if (err) {
+            return res.status(200).json({message:err.message});
+
+        }
+        /*res.cookie(configure.auth_cookie_name, user._id, {
+            maxAge: 1000 * 60 * 60 *24 * 30,
+            signed: true
+        });*/
+        //req.session.user = user;
+        return res.status(200).json({message:'ok'});
+    });
     /*var username=req.body.user;
     var password=req.body.password;
 

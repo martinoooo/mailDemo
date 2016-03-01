@@ -23,7 +23,7 @@
          <!-- phone -->
         <div class="form-group" ng-class="{ 'has-error' : userForm.phone.$invalid }">
            <label>phone</label>
-           <input type="number" name="phone" class="form-control" ng-model="vm.item.phone" my-min required / >
+           <input type="number" name="phone" class="form-control" ng-model="vm.item.phone" my-min required />
            <div  ng-messages="userForm.phone.$error">
                 <div ng-message="required" class="help-block">your phone is required</div> 
                 <div ng-message="myMin" class="help-block">please Enter a number >o.</div>
@@ -54,7 +54,7 @@
         <!-- remark -->
         <div class="form-group">
             <label>remark</label>
-            <input type="text" name="remark" class="form-control" ng-model="item.remark" >
+            <input type="text" name="remark" class="form-control" ng-model="vm.item.remark" >
         </div> 
 
         <button type="submit" class="btn btn-primary" >Submit</button>
